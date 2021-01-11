@@ -3,7 +3,7 @@ import os
 import datetime
 import argparse
 
-from utils import init_driver, get_last_date_from_csv, log_search_page, keep_scroling
+from Scweet.utils import init_driver, get_last_date_from_csv, log_search_page, keep_scroling
 
 
 # class Scweet():
@@ -23,7 +23,7 @@ def scrap(start_date, max_date, words=None, to_account=None, from_account=None, 
 
     data = []
     tweet_ids = set()
-    save_dir = "outputs"
+    save_dir = "../outputs"
     write_mode = 'w'
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
