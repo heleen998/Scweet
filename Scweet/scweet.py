@@ -23,7 +23,7 @@ def scrap(start_date, max_date, words=None, to_account=None, from_account=None, 
 
     data = []
     tweet_ids = set()
-    save_dir = "../outputs"
+    save_dir = os.path.join(os.path.dirname(__file__), "..", "..", "outputs")
     write_mode = 'w'
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
