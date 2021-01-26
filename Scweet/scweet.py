@@ -23,7 +23,7 @@ def scrap(start_date, max_date, words=None, to_account=None, from_account=None, 
 
     data = []
     tweet_ids = set()
-    save_dir = os.path.join(os.path.dirname(__file__), "..", "..", "outputs")
+    save_dir = os.path.join(os.path.dirname(__file__), "..", "..", "data")
     write_mode = 'w'
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
@@ -32,17 +32,13 @@ def scrap(start_date, max_date, words=None, to_account=None, from_account=None, 
     init_date = start_date  # used for saving file
     # add interval to start_date to get end_date for te first search
     if words:
-        path = save_dir + "/" + words.split("//")[0] + '_' + str(init_date).split(' ')[0] + '_' + \
-               str(max_date).split(' ')[0] + '.csv'
+        path = save_dir + "/scraped_tweets.csv"
     elif from_account:
-        path = save_dir + "/" + from_account + '_' + str(init_date).split(' ')[0] + '_' + str(max_date).split(' ')[
-            0] + '.csv'
+        path = save_dir + "/scraped_tweets.csv"
     elif to_account:
-        path = save_dir + "/" + to_account + '_' + str(init_date).split(' ')[0] + '_' + str(max_date).split(' ')[
-            0] + '.csv'
+        path = save_dir + "/scraped_tweets.csv"
     elif hashtag:
-        path = save_dir + "/" + hashtag + '_' + str(init_date).split(' ')[0] + '_' + str(max_date).split(' ')[
-            0] + '.csv'
+        path = save_dir + "/scraped_tweets.csv"
 
     if resume:
         start_date = str(get_last_date_from_csv(path))[:10]
