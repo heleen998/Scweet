@@ -29,16 +29,16 @@ def scrap(start_date, max_date, words=None, to_account=None, from_account=None, 
         os.makedirs(save_dir)
 
     # start scraping from start_date until max_date
-    init_date = start_date  # used for saving file
+    init_date = datetime.datetime.today().date()  # used for saving file
     # add interval to start_date to get end_date for te first search
     if words:
-        path = save_dir + "/scraped_tweets.csv"
+        path = save_dir + "/scraped_tweets-{}.csv".format(init_date)
     elif from_account:
-        path = save_dir + "/scraped_tweets.csv"
+        path = save_dir + "/scraped_tweets-{}.csv".format(init_date)
     elif to_account:
-        path = save_dir + "/scraped_tweets.csv"
+        path = save_dir + "/scraped_tweets-{}.csv".format(init_date)
     elif hashtag:
-        path = save_dir + "/scraped_tweets.csv"
+        path = save_dir + "/scraped_tweets-{}.csv".format(init_date)
 
     if resume:
         start_date = str(get_last_date_from_csv(path))[:10]
